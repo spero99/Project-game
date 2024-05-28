@@ -6,15 +6,18 @@ public class badGuyBehaviour : MonoBehaviour
 {
     [SerializeField] public float attackCooldown;
     [SerializeField] public float range;
+    [SerializeField] public float colliderDistance;
+
     [SerializeField] public int damage;
     [SerializeField] public LayerMask playerLayer;// this might cause problems
     [SerializeField] public BoxCollider2D boxCollider;
     private float cooldownTimer = Mathf.Infinity;
+    private Health playerHealth;
 
     //for later 
     private Animator anim;
 
-    /*
+   
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -26,27 +29,44 @@ public class badGuyBehaviour : MonoBehaviour
         cooldownTimer += Time.deltaTime;
         if (PlayerInSight())
         {
+            Debug.Log("I see you");
             //attack only when player in sight
 
             if (cooldownTimer >= attackCooldown)
             {
                 //attack
                 cooldownTimer = 0;
-                anim.SetTrigger("meleeAttack");
+                anim.SetTrigger("enemy_attack");
             }
+        }
+    }
+
+    private void DamagePlayer()
+    {
+        if (PlayerInSight())
+        {
+            //if player still in range unalive him 
+            playerHealth.TakeDamage(damage);
         }
     }
     private bool PlayerInSight()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size,
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance ,
+             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
             0, Vector2.left, 0, playerLayer);
+
+        if (hit.collider != null)
+        {
+            playerHealth = hit.transform.GetComponent<Health>();
+        }
         return hit.collider != null;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.bounds.size);
+        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
-      */
+     
 }
