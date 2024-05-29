@@ -53,13 +53,15 @@ public class Health : MonoBehaviour
     public void YouDied()
     {   
         //back to the lobby you go 
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
 
         // restarting level (softcore)
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
     }
+    
     public void AddHealth(float _value)
     {
+        //medpacks
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
     private IEnumerator Invunerability()
