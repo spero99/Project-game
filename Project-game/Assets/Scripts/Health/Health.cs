@@ -25,6 +25,14 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
     }
+
+    public void Respawn()
+    {
+        // on new level you are no longer damaged 
+        AddHealth(startingHealth);
+        anim.Play("Player_idle");
+
+    }
     public void TakeDamage(float _damage)
     {
         //if (invulnerable) return;

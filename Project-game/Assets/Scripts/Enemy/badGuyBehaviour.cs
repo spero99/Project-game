@@ -80,9 +80,4 @@ public class badGuyBehaviour : MonoBehaviour
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
-
-    public void Deactivate()
-    {
-        gameObject.SetActive(false);
-    }
 }

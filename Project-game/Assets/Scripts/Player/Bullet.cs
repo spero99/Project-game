@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
             
             impactEffect.SetActive(false);
-            Debug.Log("set inactive");
+            //Debug.Log("set inactive");
         }
         if (lifetime > 3)
             gameObject.SetActive(false);
@@ -48,8 +48,8 @@ public class Bullet : MonoBehaviour
     {
         
         impact = true;
-        Debug.Log("impact");
-        Debug.Log(collision.name);
+        //Debug.Log("impact");
+        //Debug.Log(collision.name);
         speed = 0f;
         
         Instantiate(impactEffect, transform.position, transform.rotation);
@@ -63,7 +63,7 @@ public class Bullet : MonoBehaviour
            
             //enemy.TakeDamage(damage);
             collision.GetComponent<Health>().TakeDamage(1);
-            Debug.Log("damage taken");
+            //Debug.Log("damage taken");
            
          }
     
