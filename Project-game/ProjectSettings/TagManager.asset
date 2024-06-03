@@ -17,7 +17,7 @@ TagManager:
   - Enemy
   - background
   - foreground
-  - 
+  - 'midbackground '
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: background
     uniqueID: 1920181841
+    locked: 0
+  - name: midbackground
+    uniqueID: 4176801019
     locked: 0
   - name: Entity
     uniqueID: 1844704747
