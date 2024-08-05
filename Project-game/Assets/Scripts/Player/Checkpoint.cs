@@ -40,7 +40,7 @@ public class Checkpoint : MonoBehaviour
     {
         if (collision.transform.tag == "Checkpoint")
         {
-            //SoundManager.instance.PlaySound(checkpointSound);
+            SoundManager.instance.PlaySound(checkpointSound);
             collision.GetComponent<Collider2D>().enabled = false;
             collision.GetComponent<Animator>().SetTrigger("appear");
             Debug.Log("appear");

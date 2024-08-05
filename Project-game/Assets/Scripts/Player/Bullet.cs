@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField]public float speed = 20f;
     [SerializeField] public int damage;
+    
     public Rigidbody2D rb;
     public GameObject enemyDeathEffect;
     public GameObject impactEffect;
@@ -23,6 +24,7 @@ public class Bullet : MonoBehaviour
         lifetime = 0;
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+       
     }
     private void Update()
     {
