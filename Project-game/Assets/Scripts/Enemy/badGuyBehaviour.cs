@@ -34,7 +34,7 @@ public class badGuyBehaviour : MonoBehaviour
         cooldownTimer += Time.deltaTime;
         if (PlayerInSight())
         {
-            Debug.Log("I see you");
+            //Debug.Log("I see you");
             //attack only when player in sight
 
             if (cooldownTimer >= attackCooldown)

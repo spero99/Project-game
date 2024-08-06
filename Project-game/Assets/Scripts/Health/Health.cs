@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Health : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
-
+    public Scoring Scoring;
+    public Scoring PlayerScoreText;
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
     private bool invulnerable;
@@ -49,7 +51,9 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
-                
+                Scoring.ScoreNum += 100;
+                Debug.Log("kill points");
+                Scoring.PlayerScoreText.text = "Score: " + Scoring.ScoreNum;
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
                     component.enabled = false;

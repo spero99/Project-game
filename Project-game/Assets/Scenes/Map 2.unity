@@ -277,7 +277,10 @@ GameObject:
   - component: {fileID: 635175879}
   - component: {fileID: 635175882}
   - component: {fileID: 635175881}
+<<<<<<< Updated upstream
   - component: {fileID: 635175883}
+=======
+>>>>>>> Stashed changes
   m_Layer: 8
   m_Name: Foreground
   m_TagString: Untagged
@@ -16101,6 +16104,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< Updated upstream
 --- !u!66 &635175881
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -16145,6 +16149,9 @@ CompositeCollider2D:
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 635175877}
 --- !u!50 &635175882
+=======
+--- !u!50 &635175881
+>>>>>>> Stashed changes
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -16152,8 +16159,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635175877}
+<<<<<<< Updated upstream
   m_BodyType: 0
   m_Simulated: 1
+=======
+  m_BodyType: 2
+  m_Simulated: 0
+>>>>>>> Stashed changes
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -16170,9 +16182,15 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+<<<<<<< Updated upstream
   m_Constraints: 7
 --- !u!19719996 &635175883
 TilemapCollider2D:
+=======
+  m_Constraints: 0
+--- !u!61 &635175882
+BoxCollider2D:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16203,10 +16221,26 @@ TilemapCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
+<<<<<<< Updated upstream
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+=======
+  m_Offset: {x: 83, y: -7}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 238, y: 14}
+  m_EdgeRadius: 0
+>>>>>>> Stashed changes
 --- !u!4 &651656633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6504786640166154526, guid: 6d9e3626bc825e34f938e8390da51a81, type: 3}

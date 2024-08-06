@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public int health = 100;
 
     public GameObject deathEffect;
-
+    public Scoring Scoring;
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            Scoring.ScoreNum += 100;
         }
 
     }
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
+        
         Destroy(gameObject);
     }
 }
