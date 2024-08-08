@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 4914357388910722450}
   - component: {fileID: 5181204035157798315}
   - component: {fileID: 3925940388073270475}
+  - component: {fileID: 8586396272359991262}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -375,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5301219773762553464}
   bulletPrefab: {fileID: 723807440555186593, guid: 86f3318a2411e9b49b108e2061107e69, type: 3}
+  bulletSound: {fileID: 0}
 --- !u!114 &5181204035157798315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +392,8 @@ MonoBehaviour:
   startingHealth: 3
   iFramesDuration: 0
   numberOfFlashes: 0
+  Scoring: {fileID: 0}
+  PlayerScoreText: {fileID: 0}
   components: []
 --- !u!114 &3925940388073270475
 MonoBehaviour:
@@ -404,6 +408,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpointSound: {fileID: 0}
+--- !u!114 &8586396272359991262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3162550578527060514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd757bdd46553942adb47a8cbbe9018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerScoreText: {fileID: 0}
+  ScoreNum: 0
 --- !u!1 &6708587498531958379
 GameObject:
   m_ObjectHideFlags: 0
