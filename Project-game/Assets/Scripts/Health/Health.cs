@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
         if (currentHealth > 0)
         {
             // no hurt animations because of lack of sprites
-            //anim.SetTrigger("hurt");
+            anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
         }
         else
