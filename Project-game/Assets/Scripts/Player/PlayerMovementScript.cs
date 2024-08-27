@@ -48,6 +48,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+        crouch = false;
         
     }
 }
