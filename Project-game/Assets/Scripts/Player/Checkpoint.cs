@@ -1,4 +1,5 @@
 
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,11 +11,13 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private AudioClip checkpointSound; // beep beep you did it 
     private Transform currentCheckpoint; //store last checkpoint place 
     private Health playerHealth;
+    private UIManager uiManager;    
+    private bool testingOneMap = true;
 
     private void Awake()
     {
         playerHealth = GetComponent<Health>();
-
+        uiManager = FindObjectOfType<UIManager>();  
     }
 
     public void Respawn() // will become progress to nxt lvl
@@ -38,7 +41,13 @@ public class Checkpoint : MonoBehaviour
     //Checkpoint Activation
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Checkpoint")
+        if (collision.transform.tag == "Checkpoint" && testingOneMap == true)
+        {
+            uiManager.GameOver();
+        }
+
+
+        if (collision.transform.tag == "Checkpoint" && testingOneMap ==false)
         {
             SoundManager.instance.PlaySound(checkpointSound);
             collision.GetComponent<Collider2D>().enabled = false;
