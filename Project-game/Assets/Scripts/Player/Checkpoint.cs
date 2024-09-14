@@ -2,8 +2,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
+using UnityEngine.UI;
 
 public class Checkpoint : MonoBehaviour
 {
@@ -11,8 +10,9 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private AudioClip checkpointSound; // beep beep you did it 
     private Transform currentCheckpoint; //store last checkpoint place 
     private Health playerHealth;
-    private UIManager uiManager;    
+    private UIManager uiManager;
     private bool testingOneMap = true;
+    [SerializeField] private Text score;
 
     private void Awake()
     {
@@ -52,6 +52,7 @@ public class Checkpoint : MonoBehaviour
             SoundManager.instance.PlaySound(checkpointSound);
             collision.GetComponent<Collider2D>().enabled = false;
             collision.GetComponent<Animator>().SetTrigger("appear");
+            
             Debug.Log("appear");
             //SceneManager.LoadScene(0);
         }

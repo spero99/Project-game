@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Health : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Health : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
     private bool invulnerable;
+    private int points;
 
     private void Awake()
     {
@@ -51,9 +53,14 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
-                Scoring.ScoreNum += 100;
+                //Scoring.ScoreNum += 100;
+                points = PlayerPrefs.GetInt("HighScore");
+                points = points + 100;
+                PlayerPrefs.SetInt("HighScore", points);
                 Debug.Log("kill points");
-                Scoring.PlayerScoreText.text = "Score: " + Scoring.ScoreNum;
+                Scoring.PlayerScoreText.text = "Score: " + points;
+
+
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
                     component.enabled = false;
@@ -65,10 +72,10 @@ public class Health : MonoBehaviour
     public void YouDied()
     {   
         //back to the lobby you go 
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
 
         // restarting level (softcore)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
     }
     
     public void AddHealth(float _value)

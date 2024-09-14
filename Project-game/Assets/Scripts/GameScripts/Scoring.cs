@@ -13,6 +13,8 @@ public class Scoring : MonoBehaviour
     void Start()
     {
         ScoreNum = 0;
+        PlayerPrefs.SetInt("HighScore", ScoreNum);
+
         PlayerScoreText.text = "Score: " + ScoreNum;
 
     }
@@ -21,12 +23,35 @@ public class Scoring : MonoBehaviour
     {
         if (collision.transform.tag == "Coin")
         {
+            ScoreNum = PlayerPrefs.GetInt("HighScore");
             ScoreNum = ScoreNum + 100;
+            PlayerPrefs.SetInt("HighScore", ScoreNum);
+
+
             Debug.Log("coin");
             Debug.Log(ScoreNum);
             Destroy(collision.gameObject);
             PlayerScoreText.text = "Score: " + ScoreNum;
         }
+    }
+
+    private void SaveHighscore(int score)
+    {
+        PlayerPrefs.SetInt("HighScore", score);
+
+    }
+
+    public void SetHighscoreIfGreater(int score)
+    {
+        if (score > PlayerPrefs.GetInt("Highscore"))
+        {
+            SaveHighscore(score);
+        }
+    }
+
+    private void setLatestHighscore()
+    {
+        //
     }
 
 }
