@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 201396219}
   - component: {fileID: 201396218}
   - component: {fileID: 201396217}
+  - component: {fileID: 201396220}
   m_Layer: 5
   m_Name: InputField (Legacy)
   m_TagString: Untagged
@@ -338,6 +339,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201396215}
   m_CullTransparentMesh: 1
+--- !u!114 &201396220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201396215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd30823518a72540b1bfbe7fc751e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameInput: {fileID: 201396217}
+  filename: HighScoresJSON
 --- !u!4 &264592184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 68221863050958970, guid: 7696e0c7dab266940982c2b6bdb0f78a, type: 3}
