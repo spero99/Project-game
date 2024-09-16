@@ -6,6 +6,7 @@ public class HighscoreHandler : MonoBehaviour
 {
     List<HighscoreElement> highscoreList = new List<HighscoreElement>();
     [SerializeField] int maxCount = 5;
+    [SerializeField] string filename;
 
     private void Start()
     {
@@ -13,6 +14,10 @@ public class HighscoreHandler : MonoBehaviour
     }
     private void LoadHighscores()
     {
-
+        highscoreList = FileHandler.ReadListFromJSON<HighscoreElement>(filename);
+    }
+    private void SaveHighscores()
+    {
+        FileHandler.SaveToJSON<HighscoreElement>(highscoreList, filename);
     }
 }
