@@ -72852,6 +72852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1129455966}
   - component: {fileID: 1129455967}
+  - component: {fileID: 1129455968}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -72899,6 +72900,20 @@ MonoBehaviour:
   score: 0
   scoreScript: {fileID: 8966084740028394616}
   playerNameStr: 
+--- !u!114 &1129455968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129455965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434318249a34e5249b03c930ae6dbfb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCount: 5
+  filename: highscore.json
 --- !u!1001 &1181146990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120684,7 +120699,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8133311573830474925, guid: acb7ba746de781e4889f57aa1dc44a5a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 282498783981386184}
+      addedObject: {fileID: 282498783981386188}
   m_SourcePrefab: {fileID: 100100000, guid: acb7ba746de781e4889f57aa1dc44a5a, type: 3}
 --- !u!1 &282498783981386182 stripped
 GameObject:
@@ -120696,7 +120711,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1950478328534040962, guid: acb7ba746de781e4889f57aa1dc44a5a, type: 3}
   m_PrefabInstance: {fileID: 282498783981386181}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &282498783981386184
+--- !u!114 &282498783981386188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120710,7 +120725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1129455965}
   gameOverSound: {fileID: 8300000, guid: c97d6edfbb630464ab76defc344206f9, type: 3}
-  gameWonSound: {fileID: 0}
+  gameWonSound: {fileID: 8300000, guid: 2f1d5a5967dc43e4eaac6eb58cb8f201, type: 3}
 --- !u!1001 &887040399980860641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120857,6 +120872,14 @@ PrefabInstance:
       propertyPath: PlayerScoreText
       value: 
       objectReference: {fileID: 410741119}
+    - target: {fileID: 3058151853802059301, guid: d70e3c52e262a774cbf187df123a656a, type: 3}
+      propertyPath: Scoring
+      value: 
+      objectReference: {fileID: 8966084740028394616}
+    - target: {fileID: 3058151853802059301, guid: d70e3c52e262a774cbf187df123a656a, type: 3}
+      propertyPath: PlayerScoreText
+      value: 
+      objectReference: {fileID: 8966084740028394616}
     - target: {fileID: 4022362675143715472, guid: d70e3c52e262a774cbf187df123a656a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -58.31

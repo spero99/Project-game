@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.SocialPlatforms.Impl;
 
+
 public class Health : MonoBehaviour
 {
     [Header ("Health")]
@@ -11,6 +12,7 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
+    [SerializeField]private UIManager uiManager;
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
@@ -66,14 +68,15 @@ public class Health : MonoBehaviour
                     component.enabled = false;
                
                 dead = true;
+                uiManager.GameOver();
             }
         }
     }
     public void YouDied()
-    {   
+    {
         //back to the lobby you go 
-        SceneManager.LoadScene(0);
-
+        //SceneManager.LoadScene(0);
+        uiManager.GameOver();
         // restarting level (softcore)
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
     }

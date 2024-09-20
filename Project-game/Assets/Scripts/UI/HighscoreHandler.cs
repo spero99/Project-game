@@ -15,9 +15,36 @@ public class HighscoreHandler : MonoBehaviour
     private void LoadHighscores()
     {
         highscoreList = FileHandler.ReadListFromJSON<HighscoreElement>(filename);
+
+        while (highscoreList.Count > maxCount)
+        {
+            highscoreList.RemoveAt(maxCount);
+        }
     }
     private void SaveHighscores()
     {
         FileHandler.SaveToJSON<HighscoreElement>(highscoreList, filename);
+    }
+
+    public void AddHighScoreIfPossible(HighscoreElement element)
+    {
+        for (int i = 0; i < maxCount; i++)
+        {
+            if (i>= highscoreList.Count || element.points > highscoreList[i].points)
+            {
+                // add new highscore
+                highscoreList.Insert(i, element);
+
+                while (highscoreList.Count > maxCount)
+                {
+                    highscoreList.RemoveAt(maxCount);
+                }
+                
+                SaveHighscores();  
+
+                break;
+            }
+        }
+
     }
 }
