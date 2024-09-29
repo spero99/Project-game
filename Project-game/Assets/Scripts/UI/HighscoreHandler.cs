@@ -21,7 +21,7 @@ public class HighscoreHandler : MonoBehaviour
             highscoreList.RemoveAt(maxCount);
         }
     }
-    private void SaveHighscores()
+    public void SaveHighscores()
     {
         FileHandler.SaveToJSON<HighscoreElement>(highscoreList, filename);
     }
