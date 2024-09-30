@@ -101,17 +101,22 @@ public class highscoreTable : MonoBehaviour
         string rankString;
         switch (rank){
         default:
-            rankString = rank + "th"; break;
+            rankString = rank + "th"; break;                                                           
         case 1: rankString = "1st"; break;
         case 2: rankString = "2nd"; break;
-        case 3: rankString = "3rd"; break;
+        case 3: rankString = "3rd"; break;                                                                        
         }
-
+        
+        Debug.Log(entryTransform);
+        Debug.Log(entryTransform.Find("posText"));
+        Debug.Log(entryTransform.Find("nameText"));
+        Debug.Log(entryTransform.Find("scoreText"));
         entryTransform.Find("posText").GetComponent<TextMeshProUGUI>().text = rankString;
+        
         string name = highscoreEntry.name;
         entryTransform.Find("nameText").GetComponent<TextMeshProUGUI>().text = name;
         int score = highscoreEntry.score;
-        entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
+        entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();                      
         transformList.Add(entryTransform);
 
     }

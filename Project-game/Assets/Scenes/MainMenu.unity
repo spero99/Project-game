@@ -2406,11 +2406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5575eb8d785c2c34abe3e4da7f06252e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryContainer: {fileID: 1874801267}
-  entryTemplate: {fileID: 847799504}
-  posText: {fileID: 1900935433}
-  nameText: {fileID: 935655322}
-  scoreText: {fileID: 423139911}
 --- !u!1 &1115393990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4336,7 +4331,7 @@ GameObject:
   - component: {fileID: 1900935435}
   - component: {fileID: 1900935434}
   m_Layer: 5
-  m_Name: 'posText '
+  m_Name: posText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
