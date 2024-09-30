@@ -8,19 +8,32 @@ using UnityEngine.UI;
 
 public class highscoreTable : MonoBehaviour
 {   //https://www.youtube.com/watch?v=iAbaqGYdnyI
-    
+    /*1
     [SerializeField] Transform entryContainer;
     [SerializeField] Transform entryTemplate;
     [SerializeField] Transform posText;
     [SerializeField] Transform nameText;
     [SerializeField] Transform scoreText;
+    */
+
+    private Transform entryContainer;
+    private Transform entryTemplate;
+
     private List<HighscoreEntry> highscoreEntryList;
     private List<Transform> highscoreEntryTransformList;
 
     // Start is called before the first frame update
     void Awake()
-    {   
+    {
+        entryContainer = transform.Find("highscoreEntryContainer");
+        entryTemplate = entryContainer.Find("highscoreEntryTemplate");
+
         entryTemplate.gameObject.SetActive(false);
+
+        /*1
+        entryTemplate.gameObject.SetActive(false);
+        */
+
 
         /*
         highscoreEntryList = new List<HighscoreEntry>(){
@@ -32,7 +45,7 @@ public class highscoreTable : MonoBehaviour
         };
         */
 
-        AddHighscoreEntry(999999, "cmk");
+        //AddHighscoreEntry(999999, "cmk");
 
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
@@ -94,11 +107,11 @@ public class highscoreTable : MonoBehaviour
         case 3: rankString = "3rd"; break;
         }
 
-        posText.GetComponent<TextMeshProUGUI>().text = rankString;
+        entryTransform.Find("posText").GetComponent<TextMeshProUGUI>().text = rankString;
         string name = highscoreEntry.name;
-        nameText.GetComponent<TextMeshProUGUI>().text = name;
+        entryTransform.Find("nameText").GetComponent<TextMeshProUGUI>().text = name;
         int score = highscoreEntry.score;
-        scoreText.GetComponent<TextMeshProUGUI>().text = score.ToString();
+        entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
         transformList.Add(entryTransform);
 
     }
