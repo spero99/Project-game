@@ -33,19 +33,29 @@ public class highscoreTable : MonoBehaviour
         /*1
         entryTemplate.gameObject.SetActive(false);
         */
-
-
         /*
+        //for test below
+        
         highscoreEntryList = new List<HighscoreEntry>(){
-            new HighscoreEntry { score = 52185, name = "vhhsdfhs" },
-            new HighscoreEntry { score = 554821, name = "awgfv" },
-            new HighscoreEntry { score = 44782, name = "sfffsdf" },
-            new HighscoreEntry { score = 11445, name = "vwazsdfgwrg" },
-            new HighscoreEntry { score = 4089, name = "cyydsw" },
+            new HighscoreEntry { score = 290, name = "butcher" },
+            new HighscoreEntry { score = 390, name = "rogXfactor" },
+            new HighscoreEntry { score = 420, name = "petrakis" },
+            new HighscoreEntry { score = 666, name = "psarilaos" },
+            new HighscoreEntry { score = 999, name = "ricochette" },
         };
+        highscoreEntryTransformList = new List<Transform>();
+        foreach (HighscoreEntry highscoreEntry in highscoreEntryList)
+        {
+            CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
+            
+        }
+        Highscores highscorestmp = new Highscores { highscoreEntryList = highscoreEntryList };
+        string json = JsonUtility.ToJson(highscorestmp);
+        PlayerPrefs.SetString("highscoreTable", json);
+        PlayerPrefs.Save(); 
+        Debug.Log(PlayerPrefs.GetString("highscoreTable"));
+        //for test above
         */
-
-        //AddHighscoreEntry(999999, "cmk");
 
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
@@ -121,7 +131,7 @@ public class highscoreTable : MonoBehaviour
 
     }
 
-    private void AddHighscoreEntry(int score, string name)
+    public static void AddHighscoreEntry(int score, string name)
     {
         HighscoreEntry highscoreEntry = new HighscoreEntry { score = score, name = name };
         string jsonString = PlayerPrefs.GetString("highscoreTable");
