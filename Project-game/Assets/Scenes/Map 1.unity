@@ -72079,7 +72079,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3058151853802059301, guid: d70e3c52e262a774cbf187df123a656a, type: 3}
   m_PrefabInstance: {fileID: 4145036380996091234}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2056399848}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef9a16e3c5b18dc4697d842c8ae60f23, type: 3}
@@ -72806,6 +72806,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7696e0c7dab266940982c2b6bdb0f78a, type: 3}
+--- !u!1 &2056399848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5076765728015358380, guid: d70e3c52e262a774cbf187df123a656a, type: 3}
+  m_PrefabInstance: {fileID: 4145036380996091234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2081492807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 68221863050958970, guid: 7696e0c7dab266940982c2b6bdb0f78a, type: 3}
@@ -119642,6 +119647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 1129455965}
+  playerObject: {fileID: 2056399848}
   gameWonScreen: {fileID: 1317268165}
   gameOverSound: {fileID: 8300000, guid: c97d6edfbb630464ab76defc344206f9, type: 3}
   gameWonSound: {fileID: 8300000, guid: 2f1d5a5967dc43e4eaac6eb58cb8f201, type: 3}
@@ -120005,6 +120011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6551965171137403790, guid: a0d35d94e9f92f3439c0526e3755b2cf, type: 3}
+      propertyPath: m_text
+      value: Type here
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120018,6 +120028,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 282498783981386183}
     m_Modifications:
+    - target: {fileID: 2893128419223899677, guid: df907e9599e13e24cbb95209a7ed4b8d, type: 3}
+      propertyPath: m_text
+      value: Type Here
+      objectReference: {fileID: 0}
     - target: {fileID: 3119298735905666697, guid: df907e9599e13e24cbb95209a7ed4b8d, type: 3}
       propertyPath: m_Name
       value: GameWonScreen
@@ -120303,7 +120317,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1927233447973436496, guid: d70e3c52e262a774cbf187df123a656a, type: 3}
   m_PrefabInstance: {fileID: 4145036380996091234}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2056399848}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcd757bdd46553942adb47a8cbbe9018, type: 3}
