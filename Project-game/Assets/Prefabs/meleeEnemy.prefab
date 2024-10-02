@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -613461801
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4a587e1c913636f4c812f857e5aa6c84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,8 +167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  uiManager: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: b6939391dd4b99d4795e9df39ccdd4af, type: 3}
   iFramesDuration: 0
   numberOfFlashes: 0
+  Scoring: {fileID: 0}
+  PlayerScoreText: {fileID: 0}
   components: []
 --- !u!114 &6312371434187405831
 MonoBehaviour:

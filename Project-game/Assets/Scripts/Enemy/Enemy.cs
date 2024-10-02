@@ -7,6 +7,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health = 100;
+    [SerializeField] private AudioClip deathSound;
 
     public GameObject deathEffect;
     public Scoring Scoring;
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
         {
             Die();
             Scoring.ScoreNum += 100;
+            SoundManager.instance.PlaySound(deathSound);
         }
 
     }
