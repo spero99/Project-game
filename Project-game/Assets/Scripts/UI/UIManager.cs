@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject gameWonScreen;
     [SerializeField] private AudioClip gameOverSound;
     [SerializeField] private AudioClip gameWonSound;
 
@@ -24,7 +25,7 @@ public class UIManager : MonoBehaviour
     public void GameWon()
     {
 
-        //gameOverScreen.SetActive(true);
+        gameWonScreen.SetActive(true);
         SoundManager.instance.PlaySound(gameWonSound);
 
 

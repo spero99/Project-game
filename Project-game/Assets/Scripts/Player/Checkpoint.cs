@@ -41,9 +41,14 @@ public class Checkpoint : MonoBehaviour
     //Checkpoint Activation
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.transform.tag == "Checkpoint" )
+        {
+            uiManager.GameWon();
+        }
+        /*
         if (collision.transform.tag == "Checkpoint" && testingOneMap == true)
         {
-            uiManager.GameOver();
+            uiManager.GameWon();
         }
 
 
@@ -54,8 +59,9 @@ public class Checkpoint : MonoBehaviour
             collision.GetComponent<Animator>().SetTrigger("appear");
             
             Debug.Log("appear");
-            //SceneManager.LoadScene(0);
+            
         }
+        */
     }
 }
 

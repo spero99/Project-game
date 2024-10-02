@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     private Animator anim;
     private bool dead;
     [SerializeField]private UIManager uiManager;
-
+    [SerializeField] private AudioClip deathSound;
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
@@ -55,6 +55,8 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
+                //play death sound
+                SoundManager.instance.PlaySound(deathSound);
                 //Scoring.ScoreNum += 100;
                 points = PlayerPrefs.GetInt("HighScore");
                 points = points + 100;
@@ -68,7 +70,7 @@ public class Health : MonoBehaviour
                     component.enabled = false;
                
                 dead = true;
-                uiManager.GameOver();
+                
             }
         }
     }
@@ -76,6 +78,7 @@ public class Health : MonoBehaviour
     {
         //back to the lobby you go 
         //SceneManager.LoadScene(0);
+        SoundManager.instance.PlaySound(deathSound);
         uiManager.GameOver();
         // restarting level (softcore)
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex );
