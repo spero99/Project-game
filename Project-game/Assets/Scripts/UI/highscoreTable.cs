@@ -55,10 +55,36 @@ public class highscoreTable : MonoBehaviour
         PlayerPrefs.Save(); 
         Debug.Log(PlayerPrefs.GetString("highscoreTable"));
         //for test above
+
+
+        {"highscoreEntryList":[{"score":290,"name":"butcher"},{"score":390,"name":"rogXfactor"},{"score":420,"name":"petrakis"},{"score":666,"name":"psarilaos"},{"score":999,"name":"ricochette"},{"score":700,"name":"jk"}]}
         */
 
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
+        if (jsonString == null)
+        {
+            highscoreEntryList = new List<HighscoreEntry>(){
+            new HighscoreEntry { score = 290, name = "butcher" },
+            new HighscoreEntry { score = 390, name = "rogXfactor" },
+            new HighscoreEntry { score = 420, name = "petrakis" },
+            new HighscoreEntry { score = 666, name = "psarilaos" },
+            new HighscoreEntry { score = 999, name = "ricochette" },
+            };
+            highscoreEntryTransformList = new List<Transform>();
+            foreach (HighscoreEntry highscoreEntry in highscoreEntryList)
+            {
+                CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
+
+            }
+            Highscores highscorestmp = new Highscores { highscoreEntryList = highscoreEntryList };
+            string json = JsonUtility.ToJson(highscorestmp);
+            PlayerPrefs.SetString("highscoreTable", json);
+            PlayerPrefs.Save();
+            Debug.Log(PlayerPrefs.GetString("highscoreTable"));
+            jsonString = PlayerPrefs.GetString("highscoreTable");
+        }
+
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
         //sort the list 

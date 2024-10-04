@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     }
     public void GameWon()
     {
-        playerObject.SetActive(false);
+        //playerObject.SetActive(false);
         gameWonScreen.SetActive(true);
         SoundManager.instance.PlaySound(gameWonSound);
 

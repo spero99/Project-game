@@ -13,7 +13,7 @@ public class saveButton : MonoBehaviour
 {
     [SerializeField] public TMP_InputField nameInput;
     
-    // Start is called before the first frame update
+    
 
 
     public  void onClickSave()
@@ -23,11 +23,11 @@ public class saveButton : MonoBehaviour
         Debug.Log(name);
         int newScore = PlayerPrefs.GetInt("HighScore");
 
-        highscoreTable.AddHighscoreEntry(newScore, name);
+        //highscoreTable.AddHighscoreEntry(newScore, name);
         Debug.Log(newScore);
         Debug.Log(name);
         Debug.Log(PlayerPrefs.GetString("highscoreTable"));
         PlayerPrefs.SetInt("HighScore", 0);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 }
