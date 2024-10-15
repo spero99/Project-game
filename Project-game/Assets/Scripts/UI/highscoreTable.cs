@@ -88,16 +88,16 @@ public class highscoreTable : MonoBehaviour
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
         //sort the list 
-        for(int i=0; i < highscores.highscoreEntryList.Count; i++)
+        for (int i = 0; i < highscores.highscoreEntryList.Count; i++)
         {
-            for (int j =  i+1; j < highscores.highscoreEntryList.Count; j++)
+            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
             {
                 if (highscores.highscoreEntryList[j].score > highscores.highscoreEntryList[i].score)
                 {
                     //swap
                     HighscoreEntry tmp = highscores.highscoreEntryList[i];
                     highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
-                    highscores.highscoreEntryList[j] = tmp;    
+                    highscores.highscoreEntryList[j] = tmp;
                 }
             }
         }
@@ -111,7 +111,7 @@ public class highscoreTable : MonoBehaviour
             }
         }
         highscoreEntryTransformList = new List<Transform>();
-        foreach(HighscoreEntry highscoreEntry in highscores.highscoreEntryList)
+        foreach (HighscoreEntry highscoreEntry in highscores.highscoreEntryList)
         {
             CreateHighscoreEntryTransform(highscoreEntry, entryContainer, highscoreEntryTransformList);
         }
@@ -135,24 +135,24 @@ public class highscoreTable : MonoBehaviour
 
         int rank = transformList.Count + 1;
         string rankString;
-        switch (rank){
-        default:
-            rankString = rank + "th"; break;                                                           
-        case 1: rankString = "1st"; break;
-        case 2: rankString = "2nd"; break;
-        case 3: rankString = "3rd"; break;                                                                        
+        switch (rank) {
+            default:
+                rankString = rank + "th"; break;
+            case 1: rankString = "1st"; break;
+            case 2: rankString = "2nd"; break;
+            case 3: rankString = "3rd"; break;
         }
-        
+
         Debug.Log(entryTransform);
         Debug.Log(entryTransform.Find("posText"));
         Debug.Log(entryTransform.Find("nameText"));
         Debug.Log(entryTransform.Find("scoreText"));
         entryTransform.Find("posText").GetComponent<TextMeshProUGUI>().text = rankString;
-        
+
         string name = highscoreEntry.name;
         entryTransform.Find("nameText").GetComponent<TextMeshProUGUI>().text = name;
         int score = highscoreEntry.score;
-        entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();                      
+        entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
         transformList.Add(entryTransform);
 
     }
@@ -164,14 +164,31 @@ public class highscoreTable : MonoBehaviour
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
         //Debug.Log(jsonString);
         highscores.highscoreEntryList.Add(highscoreEntry);
-        
+
         string json = JsonUtility.ToJson(highscores);
         PlayerPrefs.SetString("highscoreTable", json);
         //Debug.Log(jsonString);
 
     }
+    public void SaveToJson(string jsonString)
+    {
+        string jsonData = JsonUtility.ToJson(jsonString);
+        string filepath = Application.persistentDataPath + "/highscores.json";
+        Debug.Log(jsonData);   
+        Debug.Log(filepath);
+        System.IO.File.WriteAllText(filepath, jsonData);
+        Debug.Log("highscore saved to file ");
 
-    private class Highscores
+    }
+
+    public void LoadFromJson()
+    {
+
+    }
+
+
+    [System.Serializable]
+    public class Highscores
     {
         public List<HighscoreEntry> highscoreEntryList;
     }
@@ -179,7 +196,7 @@ public class highscoreTable : MonoBehaviour
 
     [System.Serializable]
     //represents single highscore entry 
-    private class HighscoreEntry
+    public class HighscoreEntry
     {
         public int score;
         public string name;
