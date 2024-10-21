@@ -38,12 +38,29 @@ public class Checkpoint : MonoBehaviour
         playerHealth.Respawn();
     }
 
+    public void GameWonScreen()
+    {
+        uiManager.GameWon();
+    }
     //Checkpoint Activation
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Checkpoint" )
         {
-            uiManager.GameWon();
+            Debug.Log("checkpoint Collision");
+            int nextlvl = MainMenu.GetNextLevelIndex();
+            Debug.Log("nextlvlis:");
+            Debug.Log(nextlvl);
+            if (nextlvl == 0)
+            {
+                uiManager.GameWon();
+            }
+            else
+            {
+                SceneManager.LoadScene(nextlvl);
+            }
+
+
         }
         /*
         if (collision.transform.tag == "Checkpoint" && testingOneMap == true)

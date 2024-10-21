@@ -15,7 +15,8 @@ public class MainMenu : MonoBehaviour
         InitializeLeftLevels();
         //to fix
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        getNextLevelIndex();
+        //int nextLevelIndex = getNextLevelIndex();
+        SceneManager.LoadScene(GetNextLevelIndex());
 
     }
     public void SetVolume(float volume)
@@ -24,15 +25,16 @@ public class MainMenu : MonoBehaviour
     }
 
 
-    public static void getNextLevelIndex()
-    {
+    public static int GetNextLevelIndex()
+    {       
         //gets the next level from the levels available
         int nextLevelIndex = leftLevels[0];
         Debug.Log(nextLevelIndex);
         //removes the level selected from the available levels so we dont replay that level
         leftLevels.RemoveAt(0);
-        SceneManager.LoadScene(nextLevelIndex);
-    }
+        return nextLevelIndex;
+     }
+
     public static void InitializeLeftLevels()
     {
         //creates a list of indexes with the available maps/levels 
@@ -47,11 +49,17 @@ public class MainMenu : MonoBehaviour
             leftLevels[tmp2] = tempLvl;
             
         }
+
+        Debug.Log("leftlevels");
         Debug.Log(leftLevels);
         
-        //leftLevels.Add(0);
+        leftLevels.Add(0);
+
+        //added one more so the list does not end empty and get asked to remove sth that isnt there
+        leftLevels.Add(0);
+        Debug.Log("leftlevelscount");
         Debug.Log(leftLevels.Count);
-        Debug.Log(leftLevels);
+        
         
     }
 
