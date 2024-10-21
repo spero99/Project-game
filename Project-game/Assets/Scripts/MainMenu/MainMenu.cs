@@ -14,8 +14,9 @@ public class MainMenu : MonoBehaviour
 
         InitializeLeftLevels();
         //to fix
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        getNextLevelIndex();
+
     }
     public void SetVolume(float volume)
     {
@@ -25,14 +26,18 @@ public class MainMenu : MonoBehaviour
 
     public static void getNextLevelIndex()
     {
-        //
-
+        //gets the next level from the levels available
+        int nextLevelIndex = leftLevels[0];
+        Debug.Log(nextLevelIndex);
+        //removes the level selected from the available levels so we dont replay that level
+        leftLevels.RemoveAt(0);
+        SceneManager.LoadScene(nextLevelIndex);
     }
     public static void InitializeLeftLevels()
     {
-        //
+        //creates a list of indexes with the available maps/levels 
         leftLevels = new List<int> {  1, 2, 3, 4 };
-        //randomize
+        //randomize the indexes to create the roguelite mechanic 
         for( int i = 0; i<69; i++)
         {
             int tmp  = Random.Range(0, leftLevels.Count);
@@ -43,7 +48,11 @@ public class MainMenu : MonoBehaviour
             
         }
         Debug.Log(leftLevels);
-        //leftLevels.Add(5);
+        
+        //leftLevels.Add(0);
+        Debug.Log(leftLevels.Count);
+        Debug.Log(leftLevels);
+        
     }
 
     public void QuitGame()
