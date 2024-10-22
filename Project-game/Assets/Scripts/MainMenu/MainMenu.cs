@@ -9,10 +9,24 @@ public class MainMenu : MonoBehaviour
 {
     public static List<int> leftLevels;
     public AudioMixer audioMixer;
+    private void Start()
+    {
+        /*
+        string json = PlayerPrefs.GetString("highscoreTable");
+        if (json != null)
+        {
+            //highscoreTable.InitializeDefaultHighscores();
+
+        }
+        */
+        
+    }
     public void PlayGame()
     {
 
         InitializeLeftLevels();
+        int score = 0;
+        PlayerPrefs.SetInt("HighScore", score);
         //to fix
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //int nextLevelIndex = getNextLevelIndex();

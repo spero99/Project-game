@@ -12,9 +12,8 @@ public class Scoring : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScoreNum = 0;
-        PlayerPrefs.SetInt("HighScore", ScoreNum);
 
+        ScoreNum = PlayerPrefs.GetInt("HighScore");
         PlayerScoreText.text = "Score: " + ScoreNum;
 
     }

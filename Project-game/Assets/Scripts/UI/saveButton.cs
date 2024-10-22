@@ -23,7 +23,7 @@ public class saveButton : MonoBehaviour
         Debug.Log(name);
         int newScore = PlayerPrefs.GetInt("HighScore");
 
-        //highscoreTable.AddHighscoreEntry(newScore, name);
+        highscoreTable.AddHighscoreEntry(newScore, name);
         Debug.Log(newScore);
         Debug.Log(name);
         Debug.Log(PlayerPrefs.GetString("highscoreTable"));
