@@ -11,25 +11,15 @@ public class MainMenu : MonoBehaviour
     public AudioMixer audioMixer;
     private void Start()
     {
-        /*
-        string json = PlayerPrefs.GetString("highscoreTable");
-        if (json != null)
-        {
-            //highscoreTable.InitializeDefaultHighscores();
-
-        }
-        */
-        
+              
     }
     public void PlayGame()
     {
-
         InitializeLeftLevels();
         int score = 0;
         PlayerPrefs.SetInt("HighScore", score);
-        //to fix
+        //obsolete loads the next scene in the build
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //int nextLevelIndex = getNextLevelIndex();
         SceneManager.LoadScene(GetNextLevelIndex());
 
     }
@@ -61,20 +51,9 @@ public class MainMenu : MonoBehaviour
             int tempLvl = leftLevels[tmp];
             leftLevels[tmp] = leftLevels[tmp2];
             leftLevels[tmp2] = tempLvl;
-            
-        }
-
-        Debug.Log("leftlevels");
-        Debug.Log(leftLevels);
-        
+        }    
         leftLevels.Add(0);
-
-        //added one more so the list does not end empty and get asked to remove sth that isnt there
-        leftLevels.Add(0);
-        Debug.Log("leftlevelscount");
-        Debug.Log(leftLevels.Count);
-        
-        
+        leftLevels.Add(0);      
     }
 
     public void QuitGame()

@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 
 public static class FileHandler
-{
+{//OBSOLETE NOT IN USE
 
     public static void SaveToJSON<T>(List<T> toSave, string filename)
     {

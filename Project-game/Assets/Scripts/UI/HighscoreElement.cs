@@ -3,7 +3,7 @@ using System;
 
 [Serializable]
 public class HighscoreElement 
-{
+{   //OBSOLETE NOT IN USE 
     public string playerName;
     public int points;
 

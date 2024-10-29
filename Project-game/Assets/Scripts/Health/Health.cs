@@ -31,14 +31,7 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
     }
-
-    public void Respawn()
-    {
-        // on new level you are no longer damaged 
-        AddHealth(startingHealth);
-        anim.Play("Player_idle");
-
-    }
+  
     public void TakeDamage(float _damage)
     {
         //if (invulnerable) return;
@@ -63,12 +56,9 @@ public class Health : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore", points);
                 Debug.Log("kill points");
                 Scoring.PlayerScoreText.text = "Score: " + points;
-
-
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
                     component.enabled = false;
-               
                 dead = true;
                 
             }
@@ -77,7 +67,6 @@ public class Health : MonoBehaviour
     public void YouDied()
     {
         //back to the lobby you go 
-        //SceneManager.LoadScene(0);
         SoundManager.instance.PlaySound(deathSound);
         uiManager.GameOver();
         // restarting level (softcore)

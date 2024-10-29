@@ -10,7 +10,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioClip gameOverSound;
     [SerializeField] private AudioClip gameWonSound;
 
-
     private void Awake()
     {
         gameOverScreen.SetActive(false);
@@ -20,15 +19,11 @@ public class UIManager : MonoBehaviour
         playerObject.SetActive(false);
         gameOverScreen.SetActive(true);
         SoundManager.instance.PlaySound(gameOverSound);
-        
-
     }
     public void GameWon()
     {
         //playerObject.SetActive(false);
         gameWonScreen.SetActive(true);
         SoundManager.instance.PlaySound(gameWonSound);
-
-
     }
 }

@@ -12,10 +12,8 @@ public class Scoring : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         ScoreNum = PlayerPrefs.GetInt("HighScore");
         PlayerScoreText.text = "Score: " + ScoreNum;
-
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -25,21 +23,18 @@ public class Scoring : MonoBehaviour
             ScoreNum = PlayerPrefs.GetInt("HighScore");
             ScoreNum = ScoreNum + 100;
             PlayerPrefs.SetInt("HighScore", ScoreNum);
-
-
-            Debug.Log("coin");
-            Debug.Log(ScoreNum);
             Destroy(collision.gameObject);
             PlayerScoreText.text = "Score: " + ScoreNum;
         }
     }
 
+
+    //OBSOLETE
     private void SaveHighscore(int score)
     {
         PlayerPrefs.SetInt("HighScore", score);
-
     }
-
+    //OBSOLETE
     public void SetHighscoreIfGreater(int score)
     {
         if (score > PlayerPrefs.GetInt("Highscore"))
@@ -47,7 +42,7 @@ public class Scoring : MonoBehaviour
             SaveHighscore(score);
         }
     }
-
+    //OBSOLETE
     private void setLatestHighscore()
     {
         //

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class pointsHandler : MonoBehaviour
-{
+{   //OBSOLETE NOT IN USE 
     [SerializeField] InputField playerName;
     public int score;
     public Scoring scoreScript;

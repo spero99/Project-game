@@ -20,24 +20,6 @@ public class Checkpoint : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();  
     }
 
-    public void Respawn() // will become progress to nxt lvl
-    {
-        /*
-        //move player to checkpoint position 
-        transform.position = currentCheckpoint.position; 
-
-        // load next level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
-        */
-
-        //for test only go to main menu 
-        SceneManager.LoadScene(0);
-
-
-        //Restore player health and animation 
-        playerHealth.Respawn();
-    }
-
     public void GameWonScreen()
     {
         uiManager.GameWon();
@@ -59,26 +41,7 @@ public class Checkpoint : MonoBehaviour
             {
                 SceneManager.LoadScene(nextlvl);
             }
-
-
         }
-        /*
-        if (collision.transform.tag == "Checkpoint" && testingOneMap == true)
-        {
-            uiManager.GameWon();
-        }
-
-
-        if (collision.transform.tag == "Checkpoint" && testingOneMap ==false)
-        {
-            SoundManager.instance.PlaySound(checkpointSound);
-            collision.GetComponent<Collider2D>().enabled = false;
-            collision.GetComponent<Animator>().SetTrigger("appear");
-            
-            Debug.Log("appear");
-            
-        }
-        */
     }
 }
 

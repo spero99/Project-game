@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HighscoreHandler : MonoBehaviour
 {
+    //OBSOLETE NOT IN USE
     List<HighscoreElement> highscoreList = new List<HighscoreElement>();
     [SerializeField] int maxCount = 5;
     [SerializeField] string filename;
